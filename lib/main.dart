@@ -1,8 +1,8 @@
 import 'dart:async';
-
-import 'package:crypto_value/repositories/crypto_coins/abstract_coins_repository.dart';
-import 'package:crypto_value/repositories/crypto_coins/crypto_coins_repository.dart';
+import 'package:crypto_value/repositories/crypto_coins/abstarct_coins_repository.dart';
+import 'package:crypto_value/repositories/crypto_coins/crypto_coins_rpository.dart';
 import 'package:crypto_value/repositories/crypto_coins/models/crypto_coin.dart';
+import 'package:crypto_value/repositories/crypto_coins/models/crypto_coin_details.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +11,6 @@ import 'package:hive/hive.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-
 import 'crypto_coins_list_app.dart';
 
 void main() async {
@@ -48,7 +47,7 @@ void main() async {
   );
 
   GetIt.I.registerLazySingleton<AbstractCoinsRepository>(
-        () => CryptoCoinsRepository(
+    () => CryptoCoinsRepository(
       dio: dio,
       cryptoCoinsBox: cryptoCoinsBox,
     ),
@@ -60,4 +59,8 @@ void main() async {
   runZonedGuarded(() => runApp(const CryptoCurrenciesListApp()), (e, st) {
     GetIt.I<Talker>().handle(e, st);
   });
+}
+
+extension on HiveInterface {
+  initFlutter() {}
 }

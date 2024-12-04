@@ -1,13 +1,12 @@
 import 'dart:async';
 
-
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-import '../../../repositories/crypto_coins/abstract_coins_repository.dart';
+import '../../../repositories/crypto_coins/abstarct_coins_repository.dart';
 import '../bloc/crypto_list_bloc.dart';
 import '../widgets/crypto_coin_tile.dart';
 

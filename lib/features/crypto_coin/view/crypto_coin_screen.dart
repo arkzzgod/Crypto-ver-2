@@ -1,13 +1,14 @@
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import '../../../repositories/crypto_coins/abstract_coins_repository.dart';
+
+import '../../../repositories/crypto_coins/abstarct_coins_repository.dart';
 import '../../../repositories/crypto_coins/models/crypto_coin.dart';
-import '../bloc/crypto_coins_details_bloc.dart';
+import '../bloc/crypto_coin_details/crypto_coin_details_bloc.dart';
 import '../widgets/base_card.dart';
 
-// @RoutePage()
+@RoutePage()
 class CryptoCoinScreen extends StatefulWidget {
   const CryptoCoinScreen({
     super.key,
@@ -21,6 +22,7 @@ class CryptoCoinScreen extends StatefulWidget {
 }
 
 class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
+  // CryptoCoin? coin;
 
   final _coinDetailsBloc = CryptoCoinDetailsBloc(
     GetIt.I<AbstractCoinsRepository>(),
@@ -104,12 +106,6 @@ class _CryptoCoinScreenState extends State<CryptoCoinScreen> {
       ),
     );
   }
-}
-
-extension on List<Object?> {
-   get details => null;
-
-  String? get name => null;
 }
 
 class _DataRow extends StatelessWidget {

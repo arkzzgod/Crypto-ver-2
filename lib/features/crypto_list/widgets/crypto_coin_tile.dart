@@ -1,8 +1,8 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../repositories/crypto_coins/models/crypto_coin.dart';
+import '../../../router/router.dart';
 
 class CryotoCoinTile extends StatelessWidget {
   const CryotoCoinTile({
